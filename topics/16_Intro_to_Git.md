@@ -124,7 +124,10 @@ Use `git status` all the time:
 - Before moving changes from the staging area to a commit
 - After making a commit to witness the changes in the staging area disappearing
 
-The command `$ git diff` outputs a summary of all changes in the local changes area. Use before moving changes from local area to staging are, seeing what changes you've written and deleted since last commit. 
+The command `$ git diff` outputs a summary of all changes in the local changes area. Use before moving changes from local area to staging are, seeing what changes you've written and deleted since last commit.  The git diff command is often used along with `git status` and `git log` to analyze the current state of a Git repo.
+ 
+`git diff --color-words`: special mode for highlighting changes 
+
 
 Git commands that need to present more than a screensworth of data often show their results using a program called less. Scroll up/down with arrows or k/j. Spacebar to scroll by one page. b to scroll up by one page and q to exit. 
 
@@ -138,3 +141,4 @@ Git commands that need to present more than a screensworth of data often show th
 - The date and time that the commit was made
 - The commit message
 - The entire diff of that commit
+
