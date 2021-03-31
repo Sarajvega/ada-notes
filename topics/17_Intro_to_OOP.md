@@ -357,6 +357,9 @@ ride-share-app/
 Access passenger module w/ `.passenger` or `ride_share_app.passenger` depending on relative location. 
 
 ## Importing
+
+The import statement combines two operations; it searches for the named module, then it binds the results of that search to a name in the local scope. 
+
 We must import any resources that we need from another module before we can use them in the current module, otherwise Python will report a NameError.
 
 1. Importing a module by name
@@ -372,6 +375,19 @@ We must import any resources that we need from another module before we can use 
       3. `import` names the indetifier we want python to import. 
    3. How do we import a module that is inside a different folder, but within the same package?
       1. `..driver` - Goes up two folders. 
+
+
+**Only things that are after import are available as symbols in our code.** 
+
+Example:
+```python
+from random import randint
+# import random
+
+# print(randint(0,5))
+print(random.randint(0,5))
+```
+This will throw and error because we did not import anything called 'random'. If we uncomment line one this will work, or we could swap the two print statements.
 
 Importing duplicate named classes
 ```python
