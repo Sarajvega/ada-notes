@@ -124,7 +124,7 @@ def add_two_random_numbers():
 - Static Method: A method that does not depend on an instance, and does not access instance or class variables. Essentially a regular function that happens to be stored in a class primarily for namespace purposes. Called using the class name. 
 - Class Method: A method that receives a reference to the class itself. This method does not depend on an instance, and cannot access instance variables or methods. Called using class name `Cookie.get_own_temp()`.
 
-![Image demonstrating difference between static and class methods](static_vs_class_methods.png "Static vs Class")
+![Image demonstrating difference between static and class methods](topics/imgs/static_vs_class_methods.png "Static vs Class")
 
 ## Static Methods
 - Methods that are typically called from a class, not an instance.
