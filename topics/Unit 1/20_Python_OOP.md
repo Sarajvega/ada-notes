@@ -35,9 +35,14 @@ Ryanne is creating a calculator program. She's made 3 funcs that add, subtract, 
 Whenever Ryanne's program runs the add, subtract, or multiply functions, their behavior is extended, and automatically always checks validity, calculates, and then prints the result.
 
 ## Decorators vs Helper Functions
+
+**How are decorators usefule?**
 1. The decorator syntax may be more readable in this situation. It calls attention to itself that something interesting is happening.
 2. The decorator syntax can enforce consistency
 3. Depending on how often we imagine the decorator logic changing vs. the calculation logic changing, decorators may be easier to use, refactor, update, and maintain, compared to helper functions
+4. Static and class methods use decorators
+5. Decorators extend the beavior of functions using wrapped funcs...which are like building blocks.
+
 
 ## Synatx
 ```python
@@ -117,6 +122,8 @@ def add_two_random_numbers():
 - display_hello_world
 - display_english_alphabet
 - add_two_random_numbers
+
+
 
 ## Static Methods and Class Methods
 - Instance Variable: Also called attributes. stored on a `self` instance.
