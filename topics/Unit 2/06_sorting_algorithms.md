@@ -262,7 +262,165 @@ Merge sort is a divide-and-conqer algorithm, which means it divides arrays into 
 ## Other O(n log n) sorting algorithms
 
 ### Quick sort
+- Divide-and-conquer algorithm.
+- Picks a pivot and parttions array around the pivot. 
+- The pivot divides array in two halves, elems on left are smaller than pivot, those on right are larger.
+  - Key process is partition()
+    - The rarget is: given an array and an element of array as pivot, put x at its correct position in sorted array and put smaller elem before x, and all greater after x.
+- 3 steps performed recursively:
+  1. Bring pivot to its appropriate position. (left = small, right = greater)
+  2. quick sort left
+  3. quick sort right
+  
+Walkthru:[https://www.geeksforgeeks.org/quick-sort/]
+Take the array: 10,80,30,90,40,50,70
+- Your pivot is the first or last item in the list.
+  - Use 70. 
+- You will use this number for comparison.
+- increment i until you find val larger than the pivot. swap value with j when found. 
+- decrememnt j until you find a val smaller than j. swap value with i when found.
+- once i and j meet, the pivot takes the index of j and the two halves to the array need to be sorted. 
+- the pivot acts as a partition.
+  - This position is dependent on j's position. 
+- i is now at lowest end of one array and j is at the highest part of another array.
+
+- There are several versions: 
+  - Always pick first element as pivot.
+  - Always pick last element as pivot (implemented below)
+  - Pick a random element as pivot.
+  - Pick median as pivot.
+
+- Time complexity: O(n log n)
+- Not stable
+
+Pseudo code:
+```python
+/* low  --> Starting index,  high  --> Ending index */
+quickSort(arr[], low, high)
+{
+    if (low < high)
+    {
+        /* pi is partitioning index, arr[pi] is now
+           at right place */
+        pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);  // Before pi
+        quickSort(arr, pi + 1, high); // After pi
+    }
+}
+/* This function takes last element as pivot, places
+   the pivot element at its correct position in sorted
+    array, and places all smaller (smaller than pivot)
+   to left of pivot and all greater elements to right
+   of pivot */
+partition (arr[], low, high)
+{
+    // pivot (Element to be placed at right position)
+    pivot = arr[high];  
+ 
+    i = (low - 1)  // Index of smaller element and indicates the 
+                   // right position of pivot found so far
+
+    for (j = low; j <= high- 1; j++)
+    {
+        // If current element is smaller than the pivot
+        if (arr[j] < pivot)
+        {
+            i++;    // increment index of smaller element
+            swap arr[i] and arr[j]
+        }
+    }
+    swap arr[i + 1] and arr[high])
+    return (i + 1)
+}
+```
 
 ### Heap sort
+Helpful video: [https://www.youtube.com/watch?v=2DmK_H7IdTo]
+Article: [https://www.geeksforgeeks.org/heap-sort/]
 
-### Recursion
+```python
+# Python program for implementation of heap Sort
+# To heapify subtree rooted at index i.
+# n is size of heap
+ 
+def heapify(arr, n, i):
+    largest = i  # Initialize largest as root
+    l = 2 * i + 1     # left = 2*i + 1
+    r = 2 * i + 2     # right = 2*i + 2
+ 
+    # See if left child of root exists and is
+    # greater than root
+    if l < n and arr[largest] < arr[l]:
+        largest = l
+ 
+    # See if right child of root exists and is
+    # greater than root
+    if r < n and arr[largest] < arr[r]:
+        largest = r
+ 
+    # Change root, if needed
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]  # swap
+ 
+        # Heapify the root.
+        heapify(arr, n, largest)
+ 
+# The main function to sort an array of given size
+ 
+def heapSort(arr):
+    n = len(arr)
+ 
+    # Build a maxheap.
+    for i in range(n//2 - 1, -1, -1):
+        heapify(arr, n, i)
+ 
+    # One by one extract elements
+    for i in range(n-1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # swap
+        heapify(arr, i, 0)
+ 
+# Driver code
+arr = [12, 11, 13, 5, 6, 7]
+heapSort(arr)
+n = len(arr)
+print("Sorted array is")
+for i in range(n):
+    print("%d" % arr[i]),
+# This code is contributed by Mohit Kumra
+```
+Big O: O(n log n)
+
+### Practice:
+
+**BUBBLE SORT**
+Sorting words by length w/ bubble sort:
+```python
+def sort_by_length(str):
+    results_list = []
+    array_str = str.split()
+    i = 0
+    temp = []
+    while i < (len(array_str) - 1):
+    # while i < (len(array_str)- i - 1):
+    # Need to iterate a few more times to ensure I gets to bottom of list. 
+    # why?
+        j = 0
+        while j < (len(array_str) - i - 1):
+            if len(array_str[j]) > len(array_str[j+1]):
+                temp = array_str[j]
+                array_str[j] = array_str[j+1]
+                array_str[j+1] = temp
+                print(array_str)
+            j += 1
+        i += 1
+    print(array_str)
+
+sort_by_length("love great awesome words I")
+```
+
+**SELECTION SORT**
+
+
+**INSERTION SORT**
+
