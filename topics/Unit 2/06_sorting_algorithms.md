@@ -1,5 +1,7 @@
 # Sorting Algorithms
 
+Resource:https://realpython.com/sorting-algorithms-python/#the-merge-sort-algorithm-in-python
+
 ## Vocab
 - In-Place Sorting: Sorting an array using only a small, constant amount of extra sotrage space (O(1)). 
   - Modifies the array to be sorted directly rather than making a new array.
@@ -84,6 +86,9 @@ def bubble_sort(array):
 - repeat until i reaches its limit. 
 
 Note: Because the original array is modified, no return statement is needed!
+Easily identify bubblesort by looking for:
+ - i and j walk together.
+ - swapping values next to one another.
 
 Summary: 
 Bubble sort is a stable sorting algorithm that compares two items next to one another and swaps them if the one proceeding the first is smaller. This algorithm is unique because it contains two loops and is stable, so if we have two of the same number, the left most remains on the left. It's time complexity is O(n^2) because of its two loops and its space complexity is 1 because only a single additional memory space is required i.e. for temp variable. 
@@ -129,6 +134,11 @@ def selection_sort(array):
   - incr i
 - Repeat until i = end of list. 
 
+**Notes:**
+- we use len(Arr) - 1 because we dont need to find the minimum from a list of one elem. 
+You can identify selection sort by:
+- identifying if the min_index is track
+- only checks from i index to the end, so it gets shorter each loop. 
 Summary:
 Selection sort finds the smallest item then places it at the head of the array, then finds the second smallest, and so on. Its time complexity is O(n^2) as its contains two loops and its space complexity is 1, as there is one temporary variable used.. It is more efficient than bubble sort as it performs a smaller number of swaps.
 
@@ -186,6 +196,9 @@ def insertion_sort(array):
 - Increase the outer index i so that the sorted list grows, and the unsorted list shrinks
 
 Note: This implementation sorts the array in-place. Because the original array is modified, no return statement is needed.
+
+Identify by:
+- j -= 1 or stepping backwards. 
 
 Tracks unsorted and unsorted. Index 0 = sorted. Next index is compared, if less than goes before index 0 val. Know index 0 and index 1 are sorted. 
 
