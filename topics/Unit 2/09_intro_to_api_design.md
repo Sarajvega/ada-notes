@@ -12,8 +12,13 @@
 A RESTful API will:
 - Use HTTP for requests and responses
 - Maintain statelessness in the server. The server will not track data about the client between requests; the client will track data about the server and send it back to the server each time.
+  - No state = you don't need to track state of data.
 - Return standard media types in responses, such as plain text, HTML, XML, and JSON
 - Provide a uniform interface for the client
+- High performance b/c supports caching. 
+  - Wait why does caching make it high performance?
+  - Resource: Improve API performance w/caching: https://developer.akamai.com/blog/2018/05/31/improve-api-performance-caching 
+    - Excerpt: first request took 31ms to return data to the client, but subsequent requests did not take nearly that long. The first request is a full request, but all requests after that were served out of memory cache, and returned to the client in less than 0.5ms. This is the core benefit of caching.
 
 A non-RESTful API will:
 - Use a different protocol for requests/responses, such as SOAP
@@ -105,6 +110,32 @@ Consider:
 **Response Bodies Are Optional**
 - RESTful APIs send back self-descriptive responses. Sometimes, an HTTP status code and message is all you need!
 
-APP IDEA:
+**APP IDEA:**
 The name of the app is cleanUP. The responsibility of this app is to track groups of users and the location that they would like to clean up along with their availability. This app is unique because it connects groups based on their preferred location and availability, promoting the building of local community and increased sense of responsibility for their natural environment. Users will be able to set their preferred locations, select dates, and message other groups that match similar criteria. They will also be able to complete challenges as combined groups and individual groups. Users without a group will be able to join existing groups that match similar criteria. 
+
+Other resources
+1. What is a REST API: https://www.youtube.com/watch?v=lsMQRaeKNDk
+2. API Best Practices: https://www.merixstudio.com/blog/best-practices-rest-api-development/
+Notes:
+- **Use JSON**: If you have a public-facing service which you want to be accessible through REST API almost in 99% of cases you should choose JSON as the data format used in the communication, both the payload and the response.
+- **Use nouns instead of verbs**: GET /books/123 vs. GET /addBook/123
+- **Name collections using plural nouns**: GET/cars/x vs GET/car/123
+- **Use resource nesting to show relations/hierachy**: Resource objects often have some kind of functional hierarchy or are related to each other. For example in the online store, we have ‘users’ and ‘orders’. Orders always belong to some user, therefore we may have the following endpoints structure laid out:
+> /users <- user’s list
+> /users/123 <- specific user
+> /users/123/orders <- orders list that belongs to a specific user
+> /users/123/orders/0001 <- specific order of a specific user
+- **Add info to errors**:  provide more verbose messages and  maybe some internal code reference for even more detailed explanation. Ideally would look like:
+  - HTTP Status code
+  - CODE ID - which may be an internal reference, you may also provide a link to the API documentation containing all the code id’s
+  - Human readable message
+- **Filtering, sorting, paging, and field selection**
+  - Filtering: to narrow down the query results by specific parameters, eg. creation date, or country
+    - GET /users?country=USA
+  - Sorting: basically allows sorting the results ascending or descending by a chosen parameter or parameters, eg. by date
+    - GET /users?sort=birthdate_date:asc
+  - Paging:  uses “limit” in order to narrow down the number of results shown to a specific number, and “offset” to specify which part of the results range to be shown
+    - GET /users?limit=100
+  - **Versioning** (self explanatory)
+  - **Documentation**
 
