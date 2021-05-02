@@ -113,9 +113,17 @@ Consider:
 **APP IDEA:**
 The name of the app is cleanUP. The responsibility of this app is to track groups of users and the location that they would like to clean up along with their availability. This app is unique because it connects groups based on their preferred location and availability, promoting the building of local community and increased sense of responsibility for their natural environment. Users will be able to set their preferred locations, select dates, and message other groups that match similar criteria. They will also be able to complete challenges as combined groups and individual groups. Users without a group will be able to join existing groups that match similar criteria. 
 
-Other resources
-1. What is a REST API: https://www.youtube.com/watch?v=lsMQRaeKNDk
-2. API Best Practices: https://www.merixstudio.com/blog/best-practices-rest-api-development/
+**Other resources**
+1. What are API's?: youtube.com/watch?v=OVvTv9Hy91Q
+   1. API's = waiter between guest and complexity of restaurant services.
+   2. Why are they used?
+      1. Access to data from 3rd parties
+      2.  Hide complexity/perform tasks
+      3.  Extend functionality
+          1.  Showing Widgets on phone via API.
+          2.  Siri/Alexa - devs can use API for these things. Like telling google to turn on smart lights.
+2. What is a REST API: https://www.youtube.com/watch?v=lsMQRaeKNDk
+3. API Best Practices: https://www.merixstudio.com/blog/best-practices-rest-api-development/
 Notes:
 - **Use JSON**: If you have a public-facing service which you want to be accessible through REST API almost in 99% of cases you should choose JSON as the data format used in the communication, both the payload and the response.
 - **Use nouns instead of verbs**: GET /books/123 vs. GET /addBook/123
