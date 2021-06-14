@@ -1,0 +1,6 @@
+[submodule "core-unit-1"]
+	path = core-unit-1
+	url = https://github.com/Ada-Developers-Academy/core-unit-1.git
+[submodule "core-unit-2"]
+	path = core-unit-2
+	url = https://github.com/Ada-Developers-Academy/core-unit-2.git
