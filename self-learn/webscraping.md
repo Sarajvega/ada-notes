@@ -65,3 +65,11 @@ A package for retrieving files using HTTP, HTTPS, FTP and FTPS, the most widely 
 
 full command used:
 `wget --mirror --convert-links --adjust-extension --page-requisites --no-parent http://www.accu-climemechanicalservices.com/`
+
+06/14/2021
+- Make app that is downloaded onto your computer.
+- Timer app
+  -  20/20/20. 
+      - Every 20 minutes, look 20 meters away for 20 seconds. 
+  - Pomodoro Timer
+  - 
