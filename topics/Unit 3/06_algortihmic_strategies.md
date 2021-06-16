@@ -1,5 +1,4 @@
 # Algorithmic Strategies
-
 When we understand the kind of solution or algorithm we are using or can use, we can more easily read and understand it.
 
 - Divide and Conquer Algorithm: An algorithm design strategy based on multi-branched recursion. We recursively break down a problem into two or more subproblems of the same or related type, until these become simple enough to be solved directly. The solutions to the subproblems are then combined to give a solution to the original problem.
@@ -360,4 +359,53 @@ def lcs(str1, str2, memo=None):
     memo[str1][str2] = result
 
     return result
+```
+
+
+memoized fibonacci:
+```python
+def fib(n, memo=None):
+    if memo == None:
+        memo = [None] * (n+1)
+        memo[1] = 1
+        memo[2] = 1
+
+    if memo[n]:
+        return memo[n]
+    else:
+        result = fib(n-1 memo) + fib(n -2, memo)
+        memo[n] = result
+        return result
+
+    
+print(fib(32))
+```
+
+**1/0 Knapsack:**
+https://www.youtube.com/watch?v=xCbYmUPvc2Q
+https://www.youtube.com/watch?v=nLmhmB6NzcM
+
+
+```python
+def knapsack(weights, values, max_weight):
+    # keep track of length of lists w/ a variable. 
+    n = len(values)
+
+    # if any of these are empty or zero return 0
+    if n == 0 or max_weight == 0:
+        return 0
+        
+    # if current item is heavier than max_weight, skip it.  
+    if (weights[0] > max_weight):
+        # [1:] = advance one more in list
+        return knapsack (weights[1:], values[1:], max_weight)
+        
+    else:
+        # return the maximum of two scenarios
+        return max(
+            # 1 - take the item, save its value, and keep going.
+            values[0] + knapsack(
+                 weights[1:], values[1:], max_weight-weights[0]),
+            # skip current item, keep going. 
+                knapsack(weights[1:], values[1:],max_weight))
 ```
